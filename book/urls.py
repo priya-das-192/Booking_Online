@@ -16,11 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import settings
+from django.conf.urls.static import static
+
 from bus import views as b_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',b_views.home, name='home'),
-    path('ticket/',b_views.ticket_info,name='ticket_info'),
+    path('info/',b_views.info,name='info'),
     path('seat/',b_views.seat,name='seat'),
-]
+
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
