@@ -25,4 +25,4 @@ class Bus(models.Model):
 class Seat(models.Model):
     choice= models.CharField(max_length=200,blank=True,null=True)
     def __str__(self):
-        return self.choice
+        return self. choice
